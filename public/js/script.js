@@ -131,7 +131,11 @@ leadForm.addEventListener('submit', (event) => {
 faqItems.forEach((item) => {
   const button = item.querySelector('.faq-question');
   button.addEventListener('click', () => {
-    item.classList.toggle('active');
+    const isActive = item.classList.contains('active');
+    faqItems.forEach((el) => el.classList.remove('active'));
+    if (!isActive) {
+      item.classList.add('active');
+    }
   });
 });
 
