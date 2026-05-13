@@ -102,7 +102,7 @@ window.addEventListener('load', () => {
   }, 600);
   setTimeout(() => {
     openLeadModal();
-  }, 60000);
+  }, 10000);
 });
 
 leadCloseBtn.addEventListener('click', closeLeadModal);

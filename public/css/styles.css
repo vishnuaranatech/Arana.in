@@ -488,13 +488,18 @@ button {
 .timeline-card,
 .project-card,
 .testimonial-card,
-.faq-item,
 .contact-form-panel,
 .counter-card,
 .estimate-result {
   background: #fff;
   border-radius: 28px;
   box-shadow: var(--shadow);
+}
+
+.faq-item {
+  background: transparent;
+  border-radius: 28px;
+  box-shadow: none;
 }
 
 .package-card {
@@ -696,18 +701,18 @@ button {
   cursor: default;
 }
 
-.faq-item:hover {
+.faq-item.active {
   background: #F15A29;
   transform: translateY(-3px);
   box-shadow: 0 20px 48px rgba(241, 90, 41, 0.26);
 }
 
-.faq-item:hover .faq-question,
-.faq-item:hover .faq-answer p {
+.faq-item.active .faq-question,
+.faq-item.active .faq-answer p {
   color: #fff;
 }
 
-.faq-item:hover .faq-question {
+.faq-item.active .faq-question {
   border-bottom-color: rgba(255,255,255,0.2);
 }
 
