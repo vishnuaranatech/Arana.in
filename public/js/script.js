@@ -170,3 +170,16 @@ estimateForm.addEventListener('submit', (event) => {
     <p>Based on ${area} sq ft and selected package level.</p>
   `;
 });
+
+
+// Pricing accordion
+document.querySelectorAll('.accordion-trigger').forEach((btn) => {
+  btn.addEventListener('click', () => {
+    const item = btn.closest('.accordion-item');
+    const isOpen = item.classList.contains('open');
+    // close all in same card
+    const card = btn.closest('.pricing-card');
+    card.querySelectorAll('.accordion-item.open').forEach((el) => el.classList.remove('open'));
+    if (!isOpen) item.classList.add('open');
+  });
+});
