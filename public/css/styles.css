@@ -49,6 +49,81 @@ button {
   margin: 0 auto;
 }
 
+/* ── WhatsApp floating button ────────────────── */
+.whatsapp-float {
+  position: fixed;
+  left: 1.5rem;
+  bottom: 1.5rem;
+  z-index: 30;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  background: #25D366;
+  color: #fff;
+  text-decoration: none;
+  padding: 0.75rem 1.2rem;
+  border-radius: 999px;
+  font-weight: 600;
+  font-size: 0.88rem;
+  box-shadow: 0 8px 28px rgba(37, 211, 102, 0.38);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.whatsapp-float:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 14px 36px rgba(37, 211, 102, 0.5);
+}
+
+/* ── Mobile sticky CTA bar ───────────────────── */
+.mobile-cta-bar {
+  display: none;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 25;
+  background: #fff;
+  border-top: 1px solid rgba(17, 17, 17, 0.1);
+  padding: 0.75rem 1rem;
+  gap: 0.75rem;
+}
+
+.mobile-cta-call {
+  flex: 1;
+  text-align: center;
+  border: 1.5px solid var(--primary);
+  color: var(--primary);
+  padding: 0.7rem;
+  border-radius: 999px;
+  font-weight: 600;
+  font-size: 0.88rem;
+  text-decoration: none;
+  transition: background 0.2s, color 0.2s;
+}
+
+.mobile-cta-call:hover {
+  background: var(--primary);
+  color: #fff;
+}
+
+.mobile-cta-quote {
+  flex: 1;
+  text-align: center;
+  background: var(--primary);
+  color: #fff;
+  padding: 0.7rem;
+  border-radius: 999px;
+  font-weight: 600;
+  font-size: 0.88rem;
+  text-decoration: none;
+  transition: background 0.2s;
+}
+
+.mobile-cta-quote:hover {
+  background: var(--primary-dark);
+}
+
+/* ── Header ──────────────────────────────────── */
 .site-header {
   position: sticky;
   top: 0;
@@ -113,6 +188,15 @@ button {
   color: var(--primary-dark);
 }
 
+/* IMPROVEMENT 1: Header CTA */
+.header-cta {
+  font-size: 0.88rem;
+  padding: 0.65rem 1.3rem;
+  min-height: auto;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
 .nav-toggle {
   display: none;
   width: 44px;
@@ -134,6 +218,7 @@ button {
   border-radius: 999px;
 }
 
+/* ── Hero ────────────────────────────────────── */
 .hero-section {
   position: relative;
   display: grid;
@@ -189,49 +274,49 @@ button {
   display: block;
 }
 
-.hero-highlights {
-  display: grid;
-  gap: 1rem;
-  padding: 1.4rem 0;
-}
-
-.highlight-pill {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  color: #fff;
-  background: var(--primary);
-  padding: 0.7rem 1rem;
-  border-radius: 999px;
-  font-size: 0.87rem;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-}
-
-.highlight-value {
-  display: flex;
-  align-items: baseline;
-  gap: 0.65rem;
-}
-
-.highlight-value span {
-  color: var(--muted);
-}
-
-.highlight-value strong {
-  font-size: 2rem;
-  line-height: 1;
-  color: var(--secondary);
-}
-
+/* IMPROVEMENT 2: Enhanced stat cards */
 .hero-stats-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(120px, 1fr));
   gap: 1rem;
 }
 
-.hero-stats-grid .stat-card {
-  padding: 1.6rem;
+.stat-card {
+  background: #fff;
+  padding: 1.4rem 1.2rem;
+  border-radius: 24px;
+  box-shadow: var(--shadow);
+  text-align: center;
+  border: 1px solid rgba(241, 90, 41, 0.12);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.stat-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 50px rgba(241, 90, 41, 0.18);
+}
+
+.stat-number {
+  display: block;
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: var(--primary);
+  line-height: 1;
+  margin-bottom: 0.3rem;
+}
+
+.stat-card p {
+  color: var(--secondary);
+  font-weight: 600;
+  font-size: 0.85rem;
+  margin: 0 0 0.25rem;
+}
+
+.stat-since {
+  display: block;
+  font-size: 0.72rem;
+  color: var(--muted);
+  margin-top: 0.2rem;
 }
 
 .eyebrow {
@@ -275,6 +360,7 @@ button {
   border-radius: 999px;
   padding: 0.95rem 1.7rem;
   min-height: 3rem;
+  font-weight: 600;
   transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
 }
 
@@ -288,9 +374,18 @@ button {
   box-shadow: 0 18px 42px rgba(241, 90, 41, 0.2);
 }
 
+.btn-primary:hover {
+  background: var(--primary-dark);
+  box-shadow: 0 22px 48px rgba(241, 90, 41, 0.3);
+}
+
 .btn-secondary {
   color: var(--primary);
   background: rgba(241, 90, 41, 0.12);
+}
+
+.btn-secondary:hover {
+  background: rgba(241, 90, 41, 0.2);
 }
 
 .btn-outline {
@@ -302,27 +397,6 @@ button {
 .btn-white {
   color: #fff;
   background: var(--secondary);
-}
-
-.hero-stats {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(140px, 1fr));
-  gap: 1rem;
-}
-
-.stat-card {
-  background: #fff;
-  padding: 1.7rem;
-  border-radius: 24px;
-  box-shadow: var(--shadow);
-  text-align: center;
-}
-
-.stat-card span {
-  display: block;
-  font-size: 2rem;
-  font-weight: 700;
-  color: var(--secondary);
 }
 
 .section {
@@ -410,12 +484,6 @@ button {
   align-items: stretch;
 }
 
-.about-cards {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 1rem;
-}
-
 .info-card {
   background: #fff;
   border-radius: 24px;
@@ -436,31 +504,12 @@ button {
   color: #fff;
 }
 
-.accent-card {
-  background: #F15A29;
-  color: #fff;
-}
+/* accent-card removed — all four about cards now use the same normal style */
 
-.accent-card h3,
-.accent-card p {
-  color: #fff;
-}
-
-.accent-card:hover {
-  background: #c44820 !important;
-}
-
-.services-grid,
-.packages-grid,
-.timeline-grid,
-.gallery-grid,
-.testimonial-grid,
-.faq-grid {
+/* ── Services ────────────────────────────────── */
+.services-grid {
   display: grid;
   gap: 1.6rem;
-}
-
-.services-grid {
   grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 
@@ -484,6 +533,13 @@ button {
   color: #fff;
 }
 
+/* ── Packages grid ───────────────────────────── */
+.packages-grid {
+  display: grid;
+  gap: 1.6rem;
+}
+
+/* ── Project cards ───────────────────────────── */
 .package-card,
 .timeline-card,
 .project-card,
@@ -561,6 +617,7 @@ button {
   gap: 1rem;
 }
 
+/* ── Choose section ──────────────────────────── */
 .choose-section {
   background: radial-gradient(circle at top left, rgba(241, 90, 41, 0.14), transparent 36%), #fff;
 }
@@ -579,24 +636,10 @@ button {
   margin: 0 0 0.5rem;
 }
 
-.counter-panel {
-  display: grid;
-  gap: 1rem;
-}
-
-.counter-card {
-  padding: 2rem;
-  text-align: center;
-}
-
-.counter-card .counter {
-  display: block;
-  font-size: 2.5rem;
-  font-weight: 700;
-  color: var(--primary);
-}
-
+/* ── Timeline ────────────────────────────────── */
 .timeline-grid {
+  display: grid;
+  gap: 1.6rem;
   grid-template-columns: repeat(5, minmax(0, 1fr));
 }
 
@@ -632,45 +675,83 @@ button {
   margin-bottom: 1rem;
 }
 
+/* ── Project gallery ─────────────────────────── */
+.gallery-grid {
+  display: grid;
+  gap: 1.6rem;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
 .project-card {
   overflow: hidden;
   border-radius: 30px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 24px 56px rgba(17, 17, 17, 0.14);
 }
 
 .project-image {
-  min-height: 280px;
+  min-height: 220px;
   background-size: cover;
   background-position: center;
+  overflow: hidden;
 }
 
-.project-image-1 {
-  background-image: linear-gradient(180deg, rgba(17, 17, 17, 0.06), rgba(17, 17, 17, 0.1)), radial-gradient(circle at top right, rgba(241, 90, 41, 0.22), transparent 36%), #e3ddd8;
+.project-img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.4s ease;
 }
 
-.project-image-2 {
-  background-image: linear-gradient(180deg, rgba(17, 17, 17, 0.06), rgba(17, 17, 17, 0.1)), radial-gradient(circle at bottom left, rgba(17, 17, 17, 0.12), transparent 40%), #d4d1cc;
-}
-
-.project-image-3 {
-  background-image: linear-gradient(180deg, rgba(17, 17, 17, 0.06), rgba(17, 17, 17, 0.1)), radial-gradient(circle at top left, rgba(241, 90, 41, 0.2), transparent 36%), #e9e3dc;
-}
-
-.project-image-4 {
-  background-image: linear-gradient(180deg, rgba(17, 17, 17, 0.06), rgba(17, 17, 17, 0.1)), radial-gradient(circle at bottom right, rgba(17, 17, 17, 0.14), transparent 36%), #dcd7d0;
+.project-card:hover .project-img {
+  transform: scale(1.05);
 }
 
 .project-content {
-  padding: 1.6rem;
+  padding: 1.4rem 1.6rem 1.6rem;
 }
 
+/* IMPROVEMENT: Project tags */
+.project-tag {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.3rem 0.8rem;
+  border-radius: 999px;
+  background: rgba(241, 90, 41, 0.1);
+  color: var(--primary);
+  font-size: 0.74rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 0.6rem;
+}
+
+.project-content h3 {
+  margin: 0 0 0.5rem;
+  font-size: 1.05rem;
+}
+
+.project-content p {
+  margin: 0;
+  font-size: 0.9rem;
+}
+
+/* ── IMPROVEMENT 3: Upgraded testimonials ───── */
 .testimonial-grid {
+  display: grid;
+  gap: 1.6rem;
   grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 
 .testimonial-card {
   padding: 2rem;
   display: grid;
-  gap: 1.5rem;
+  gap: 1.2rem;
   transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
   cursor: default;
 }
@@ -683,15 +764,69 @@ button {
 
 .testimonial-card:hover p,
 .testimonial-card:hover strong,
-.testimonial-card:hover span {
+.testimonial-card:hover span,
+.testimonial-card:hover .tcard-stars,
+.testimonial-card:hover .tcard-avatar {
   color: #fff;
 }
 
-.testimonial-card strong {
-  font-size: 1rem;
+.testimonial-card:hover .tcard-avatar {
+  background: rgba(255, 255, 255, 0.2);
 }
 
+.tcard-stars {
+  color: #EF9F27;
+  font-size: 1.1rem;
+  letter-spacing: 2px;
+  transition: color 0.3s ease;
+}
+
+.testimonial-card p {
+  color: var(--muted);
+  line-height: 1.75;
+  font-size: 0.95rem;
+  margin: 0;
+}
+
+.tcard-author {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+}
+
+.tcard-avatar {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: rgba(241, 90, 41, 0.12);
+  color: var(--primary);
+  font-weight: 700;
+  font-size: 0.85rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+.tcard-author strong {
+  display: block;
+  font-size: 0.95rem;
+  transition: color 0.3s ease;
+}
+
+.tcard-author span {
+  display: block;
+  font-size: 0.8rem;
+  color: var(--muted);
+  margin-top: 0.1rem;
+  transition: color 0.3s ease;
+}
+
+/* ── FAQ ─────────────────────────────────────── */
 .faq-grid {
+  display: grid;
+  gap: 1.6rem;
   grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 
@@ -740,6 +875,7 @@ button {
   padding-top: 1rem;
 }
 
+/* ── Contact ─────────────────────────────────── */
 .contact-grid {
   grid-template-columns: 1.2fr 1fr;
   gap: 2rem;
@@ -774,6 +910,19 @@ button {
   padding: 1rem 1.2rem;
   background: #fff;
   color: var(--secondary);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus,
+.calculator-form input:focus,
+.calculator-form select:focus,
+.lead-form input:focus,
+.lead-form textarea:focus,
+.lead-form select:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(241, 90, 41, 0.12);
 }
 
 .contact-form-panel,
@@ -797,11 +946,112 @@ button {
   min-height: 1.4rem;
 }
 
+.contact-details {
+  display: grid;
+  gap: 1rem;
+  margin-top: 0;
+}
+
+.contact-details strong {
+  display: block;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--muted);
+  margin-bottom: 0.2rem;
+}
+
+.contact-details p,
+.contact-details a {
+  margin: 0;
+  color: var(--secondary);
+  font-weight: 500;
+}
+
+/* WhatsApp link in contact details */
+.whatsapp-link {
+  color: #25D366;
+  font-weight: 600;
+  text-decoration: none;
+  transition: opacity 0.2s;
+}
+
+.whatsapp-link:hover {
+  opacity: 0.8;
+}
+
+/* ── IMPROVEMENT 4: Calculator (₹ fixed) ─────── */
 .calculator-panel {
   display: grid;
   gap: 1.5rem;
 }
 
+.estimate-result {
+  padding: 2rem;
+  display: grid;
+  gap: 1rem;
+}
+
+.estimate-result h3 {
+  margin: 0;
+}
+
+.estimate-value {
+  font-size: 1.5rem;
+  color: var(--secondary);
+  margin: 0;
+}
+
+.estimate-breakdown {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 0.5rem;
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+
+.estimate-highlight {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--primary);
+}
+
+/* ── IMPROVEMENT 5: Cities section ──────────── */
+.cities-section {
+  background: #fff;
+  border-top: 1px solid rgba(17,17,17,0.06);
+}
+
+.cities-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 2rem;
+}
+
+.city-pill {
+  background: #fff;
+  border: 1px solid rgba(241, 90, 41, 0.22);
+  color: var(--secondary);
+  padding: 0.6rem 1.1rem;
+  border-radius: 999px;
+  font-size: 0.88rem;
+  font-weight: 500;
+  transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
+  cursor: default;
+  box-shadow: 0 2px 10px rgba(17, 17, 17, 0.05);
+}
+
+.city-pill:hover {
+  background: var(--primary);
+  border-color: var(--primary);
+  color: #fff;
+  transform: translateY(-2px);
+}
+
+/* ── Modal ───────────────────────────────────── */
 .modal-backdrop {
   position: fixed;
   inset: 0;
@@ -859,68 +1109,7 @@ button {
   width: 100%;
 }
 
-.estimate-result {
-  padding: 2rem;
-  display: grid;
-  gap: 1rem;
-}
-
-.estimate-result h3 {
-  margin: 0;
-}
-
-.estimate-value {
-  font-size: 1.5rem;
-  color: var(--secondary);
-  margin: 0;
-}
-
-.site-footer {
-  background: #111111;
-  color: #fff;
-  padding: 2rem 0;
-}
-
-.footer-inner-simple {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-}
-
-.footer-brand {
-  font-size: 1.1rem;
-  font-weight: 700;
-  color: #F15A29;
-  margin: 0;
-}
-
-.footer-grid {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: flex-start;
-  justify-content: space-between;
-  gap: 1.6rem;
-}
-
-.footer-links {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1.2rem;
-}
-
-.footer-links a {
-  color: rgba(255, 255, 255, 0.78);
-  text-decoration: none;
-}
-
-.footer-copy {
-  margin: 0;
-  opacity: 0.6;
-  font-size: 0.88rem;
-}
-
+/* ── Scroll top ──────────────────────────────── */
 .scroll-top {
   position: fixed;
   right: 1.5rem;
@@ -944,6 +1133,7 @@ button {
   opacity: 1;
 }
 
+/* ── Loader ──────────────────────────────────── */
 .loader {
   position: fixed;
   inset: 0;
@@ -969,6 +1159,7 @@ button {
   }
 }
 
+/* ── Reveal animations ───────────────────────── */
 .reveal-up,
 .reveal-left,
 .reveal-right {
@@ -993,38 +1184,17 @@ button {
   transform: translate(0, 0);
 }
 
-.delay {
-  transition-delay: 0.15s;
-}
-
-.delay-2 {
-  transition-delay: 0.25s;
-}
-
-.delay-3 {
-  transition-delay: 0.35s;
-}
-
-.delay-4 {
-  transition-delay: 0.45s;
-}
-
-.delay-5 {
-  transition-delay: 0.55s;
-}
+.delay { transition-delay: 0.15s; }
+.delay-2 { transition-delay: 0.25s; }
+.delay-3 { transition-delay: 0.35s; }
+.delay-4 { transition-delay: 0.45s; }
+.delay-5 { transition-delay: 0.55s; }
 
 /* ── About image ─────────────────────────────── */
 .about-image-wrap {
   grid-column: 1 / -1;
   border-radius: 24px;
   overflow: hidden;
-}
-
-.about-img {
-  width: 100%;
-  height: 260px;
-  object-fit: cover;
-  display: block;
 }
 
 /* ── Choose section image ────────────────────── */
@@ -1039,19 +1209,6 @@ button {
   height: 100%;
   object-fit: cover;
   display: block;
-}
-
-/* ── Project card images ─────────────────────── */
-.project-img {
-  width: 100%;
-  height: 280px;
-  object-fit: cover;
-  display: block;
-  transition: transform 0.4s ease;
-}
-
-.project-card:hover .project-img {
-  transform: scale(1.04);
 }
 
 /* ── Services intro two-column ───────────────── */
@@ -1094,21 +1251,7 @@ button {
 
 .contact-side-img {
   width: 100%;
-  height: 260px;
-  object-fit: cover;
-  display: block;
-}
-
-/* ── Choose / counter image ──────────────────── */
-.choose-image-wrap {
-  border-radius: 24px;
-  overflow: hidden;
-  margin-bottom: 1rem;
-}
-
-.choose-img {
-  width: 100%;
-  height: 240px;
+  height: 220px;
   object-fit: cover;
   display: block;
 }
@@ -1254,17 +1397,42 @@ button {
   transform: translateY(-2px);
 }
 
+/* ── Footer ──────────────────────────────────── */
+.site-footer {
+  background: #111111;
+  color: #fff;
+  padding: 2rem 0;
+}
+
+.footer-inner-simple {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.footer-brand {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #F15A29;
+  margin: 0;
+}
+
+.footer-copy {
+  margin: 0;
+  opacity: 0.6;
+  font-size: 0.88rem;
+}
+
+/* ── Responsive ──────────────────────────────── */
 @media (max-width: 1024px) {
   .pricing-grid {
     grid-template-columns: 1fr;
     max-width: 500px;
     margin: 0 auto;
   }
-}
 
-/* ── end pricing ─────────────────────────────── */
-
-@media (max-width: 1024px) {
   .services-intro {
     grid-template-columns: 1fr;
   }
@@ -1284,25 +1452,28 @@ button {
   .choose-full-img {
     height: 320px;
   }
-  .hero-stats {
-    grid-template-columns: repeat(2, 1fr);
-  }
 
   .services-grid,
   .packages-grid,
-  .timeline-grid,
-  .gallery-grid,
+  .timeline-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .gallery-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
   .testimonial-grid,
   .faq-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
-  .about-cards {
+  .contact-grid {
     grid-template-columns: 1fr;
   }
 
-  .contact-grid {
-    grid-template-columns: 1fr;
+  .header-cta {
+    display: none;
   }
 }
 
@@ -1337,7 +1508,7 @@ button {
   }
 
   .hero-section {
-    padding: 5rem 0 3rem;
+    padding: 5rem 0 5rem;
   }
 
   .timeline-grid,
@@ -1355,6 +1526,41 @@ button {
 
   .section {
     padding: 3.5rem 0;
+  }
+
+  /* Show mobile CTA bar */
+  .mobile-cta-bar {
+    display: flex;
+    padding-bottom: calc(0.75rem + env(safe-area-inset-bottom));
+  }
+
+  /* Give body space for mobile CTA bar */
+  body {
+    padding-bottom: 80px;
+  }
+
+  /* Move scroll-to-top above the mobile bar */
+  .scroll-top {
+    bottom: 5.5rem;
+  }
+
+  /* Move WhatsApp button up on mobile */
+  .whatsapp-float {
+    bottom: 5.5rem;
+    left: 1rem;
+    padding: 0.65rem 1rem;
+    font-size: 0.82rem;
+  }
+
+  .whatsapp-float span {
+    display: none;
+  }
+
+  .whatsapp-float {
+    width: 50px;
+    height: 50px;
+    padding: 0;
+    justify-content: center;
   }
 }
 
@@ -1374,5 +1580,14 @@ button {
   .hero-actions {
     flex-direction: column;
     align-items: stretch;
+  }
+
+  .hero-stats-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.6rem;
+  }
+
+  .stat-number {
+    font-size: 1.6rem;
   }
 }
