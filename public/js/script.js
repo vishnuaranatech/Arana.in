@@ -2,6 +2,7 @@ const navToggle = document.getElementById('navToggle');
 const mainNav = document.getElementById('mainNav');
 const scrollTopBtn = document.getElementById('scrollTopBtn');
 const loader = document.getElementById('loader');
+const siteHeader = document.getElementById('siteHeader');
 const contactForm = document.getElementById('contactForm');
 const formFeedback = document.getElementById('formFeedback');
 const estimateForm = document.getElementById('estimateForm');
@@ -12,6 +13,7 @@ const leadForm = document.getElementById('leadForm');
 const leadFeedback = document.getElementById('leadFeedback');
 const faqItems = document.querySelectorAll('.faq-item');
 const revealElements = document.querySelectorAll('.reveal-up, .reveal-left, .reveal-right');
+const newsletterBtn = document.getElementById('newsletterBtn');
 
 // ── Navigation toggle ─────────────────────────
 function toggleMenu() {
@@ -25,52 +27,80 @@ mainNav.querySelectorAll('a').forEach((link) => {
   link.addEventListener('click', (event) => {
     event.preventDefault();
     const target = document.querySelector(link.getAttribute('href'));
-    if (target) {
-      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }
-    if (mainNav.classList.contains('open')) {
-      toggleMenu();
-    }
+    if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    if (mainNav.classList.contains('open')) toggleMenu();
   });
 });
 
 // ── Scroll behaviours ─────────────────────────
 window.addEventListener('scroll', () => {
   const offset = window.scrollY;
-  if (offset > 450) {
-    scrollTopBtn.classList.add('visible');
-  } else {
-    scrollTopBtn.classList.remove('visible');
-  }
+
+  // Scroll-to-top button
+  scrollTopBtn.classList.toggle('visible', offset > 450);
+
+  // Header scroll shadow
+  siteHeader.classList.toggle('scrolled', offset > 60);
+
   revealOnScroll();
+  highlightNavOnScroll();
 });
 
 scrollTopBtn.addEventListener('click', () => {
   window.scrollTo({ top: 0, behavior: 'smooth' });
 });
 
-// ── Mobile CTA bar — scroll into contact section links
+// ── Mobile CTA bar links ──────────────────────
 const mobileCTABar = document.getElementById('mobileCTABar');
 if (mobileCTABar) {
   mobileCTABar.querySelectorAll('a[href^="#"]').forEach((link) => {
     link.addEventListener('click', (event) => {
       event.preventDefault();
       const target = document.querySelector(link.getAttribute('href'));
-      if (target) {
-        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      }
+      if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
     });
   });
 }
 
 // ── Reveal on scroll ──────────────────────────
 function revealOnScroll() {
-  const trigger = window.innerHeight * 0.85;
-  revealElements.forEach((element) => {
-    const top = element.getBoundingClientRect().top;
-    if (top < trigger) {
-      element.classList.add('visible');
+  const trigger = window.innerHeight * 0.88;
+  revealElements.forEach((el) => {
+    if (el.getBoundingClientRect().top < trigger) el.classList.add('visible');
+  });
+}
+
+// ── Stat counter animation ────────────────────
+let countersStarted = false;
+
+function animateCounters() {
+  if (countersStarted) return;
+  const statEls = document.querySelectorAll('.stat-number[data-target]');
+  if (!statEls.length) return;
+
+  // Check if first stat is visible
+  const firstRect = statEls[0].getBoundingClientRect();
+  if (firstRect.top > window.innerHeight) return;
+
+  countersStarted = true;
+
+  statEls.forEach((el) => {
+    const target = parseInt(el.getAttribute('data-target'), 10);
+    const suffix = el.getAttribute('data-suffix') || '+';
+    const duration = 1600;
+    const start = performance.now();
+
+    function tick(now) {
+      const elapsed = now - start;
+      const progress = Math.min(elapsed / duration, 1);
+      // ease out cubic
+      const eased = 1 - Math.pow(1 - progress, 3);
+      const current = Math.round(eased * target);
+      el.textContent = current + (progress < 1 ? '' : suffix);
+      if (progress < 1) requestAnimationFrame(tick);
     }
+
+    requestAnimationFrame(tick);
   });
 }
 
@@ -87,20 +117,23 @@ function closeLeadModal() {
 
 window.addEventListener('load', () => {
   revealOnScroll();
+  animateCounters();
+
+  // Hide loader
   setTimeout(() => {
-    loader.style.opacity = 0;
+    loader.style.opacity = '0';
     loader.style.pointerEvents = 'none';
-  }, 600);
-  setTimeout(() => {
-    openLeadModal();
-  }, 10000);
+  }, 700);
+
+  // Open lead modal after 28 seconds (less intrusive)
+  setTimeout(openLeadModal, 28000);
 });
+
+window.addEventListener('scroll', animateCounters, { passive: true });
 
 leadCloseBtn.addEventListener('click', closeLeadModal);
 leadModalBackdrop.addEventListener('click', (event) => {
-  if (event.target === leadModalBackdrop) {
-    closeLeadModal();
-  }
+  if (event.target === leadModalBackdrop) closeLeadModal();
 });
 
 leadForm.addEventListener('submit', (event) => {
@@ -114,9 +147,9 @@ leadForm.addEventListener('submit', (event) => {
     return;
   }
 
-  leadFeedback.textContent = 'We have received your request. Someone from Arana Developers will follow up shortly.';
+  leadFeedback.textContent = 'Thank you! Someone from Arana Developers will follow up shortly.';
   leadForm.reset();
-  setTimeout(closeLeadModal, 1500);
+  setTimeout(closeLeadModal, 1800);
 });
 
 // ── FAQ accordion ─────────────────────────────
@@ -125,9 +158,7 @@ faqItems.forEach((item) => {
   button.addEventListener('click', () => {
     const isActive = item.classList.contains('active');
     faqItems.forEach((el) => el.classList.remove('active'));
-    if (!isActive) {
-      item.classList.add('active');
-    }
+    if (!isActive) item.classList.add('active');
   });
 });
 
@@ -144,22 +175,15 @@ contactForm.addEventListener('submit', (event) => {
     return;
   }
 
-  formFeedback.textContent = 'Thanks! Your request has been sent. We will reach out soon.';
+  formFeedback.textContent = '✓ Thanks! Your request has been sent. We will reach out soon.';
   contactForm.reset();
 });
 
-// ── IMPROVEMENT 4: Cost calculator fixed for ₹ ─
-// Helper: format number in Indian style (lakhs/crores)
+// ── Cost calculator (₹ Indian format) ─────────
 function formatIndianCurrency(amount) {
-  if (amount >= 10000000) {
-    const crores = (amount / 10000000).toFixed(2);
-    return '₹' + crores + ' Crores';
-  } else if (amount >= 100000) {
-    const lakhs = (amount / 100000).toFixed(2);
-    return '₹' + lakhs + ' Lakhs';
-  } else {
-    return '₹' + amount.toLocaleString('en-IN');
-  }
+  if (amount >= 10000000) return '₹' + (amount / 10000000).toFixed(2) + ' Crores';
+  if (amount >= 100000) return '₹' + (amount / 100000).toFixed(2) + ' Lakhs';
+  return '₹' + amount.toLocaleString('en-IN');
 }
 
 estimateForm.addEventListener('submit', (event) => {
@@ -177,15 +201,13 @@ estimateForm.addEventListener('submit', (event) => {
 
   const totalCost = area * packageRate;
   const formattedTotal = formatIndianCurrency(totalCost);
-
-  // Calculate GST breakdown (GST already included in the rate, so extract 18%)
   const baseBeforeGST = Math.round(totalCost / 1.18);
   const gstAmount = totalCost - baseBeforeGST;
 
   estimateResult.innerHTML = `
     <h3>Estimate Summary</h3>
-    <p style="color: var(--muted); font-size: 0.9rem; margin: 0 0 0.5rem;">
-      ${area.toLocaleString('en-IN')} sq ft &times; ₹${packageRate.toLocaleString('en-IN')}/sqft (${packageText})
+    <p style="color:var(--muted);font-size:0.9rem;margin:0 0 0.5rem;">
+      ${area.toLocaleString('en-IN')} sq ft × ₹${packageRate.toLocaleString('en-IN')}/sqft (${packageText})
     </p>
     <p class="estimate-highlight">${formattedTotal}</p>
     <ul class="estimate-breakdown">
@@ -193,9 +215,9 @@ estimateForm.addEventListener('submit', (event) => {
       <li>GST (included): ${formatIndianCurrency(gstAmount)}</li>
       <li>Total (incl. GST): <strong>${formattedTotal}</strong></li>
     </ul>
-    <p style="color: var(--muted); font-size: 0.82rem; margin: 0.5rem 0 0;">
-      * This is an approximate estimate. Actual costs may vary based on site conditions and design choices.
-      <a href="#contact" style="color: var(--primary); font-weight: 600; text-decoration: none;">Contact us</a> for a detailed quote.
+    <p style="color:var(--muted);font-size:0.82rem;margin:0.5rem 0 0;">
+      * Approximate estimate. Actual costs may vary based on site conditions and design choices.
+      <a href="#contact" style="color:var(--primary);font-weight:600;text-decoration:none;">Contact us</a> for a detailed quote.
     </p>
   `;
 });
@@ -205,17 +227,31 @@ document.querySelectorAll('.accordion-trigger').forEach((btn) => {
   btn.addEventListener('click', () => {
     const item = btn.closest('.accordion-item');
     const isOpen = item.classList.contains('open');
-    // Close all in same card
     const card = btn.closest('.pricing-card');
     card.querySelectorAll('.accordion-item.open').forEach((el) => el.classList.remove('open'));
     if (!isOpen) item.classList.add('open');
   });
 });
 
-// ── City pills hover effect (non-js enhancement) ──
-// (all hover effects handled in CSS)
+// ── Newsletter ────────────────────────────────
+if (newsletterBtn) {
+  newsletterBtn.addEventListener('click', () => {
+    const input = newsletterBtn.previousElementSibling;
+    if (input && input.value.includes('@')) {
+      newsletterBtn.textContent = '✓ Subscribed!';
+      newsletterBtn.style.background = '#2a9d5c';
+      input.value = '';
+      setTimeout(() => {
+        newsletterBtn.textContent = 'Subscribe';
+        newsletterBtn.style.background = '';
+      }, 3000);
+    } else {
+      input && input.focus();
+    }
+  });
+}
 
-// ── Keyboard accessibility: close modal on Esc ──
+// ── Keyboard: close modal on Esc ─────────────
 document.addEventListener('keydown', (event) => {
   if (event.key === 'Escape' && leadModalBackdrop.classList.contains('visible')) {
     closeLeadModal();
@@ -229,18 +265,15 @@ const navLinks = document.querySelectorAll('.main-nav a');
 function highlightNavOnScroll() {
   let current = '';
   sections.forEach((section) => {
-    const sectionTop = section.offsetTop - 120;
-    if (window.scrollY >= sectionTop) {
+    if (window.scrollY >= section.offsetTop - 140) {
       current = section.getAttribute('id');
     }
   });
 
   navLinks.forEach((link) => {
-    link.style.color = '';
+    link.classList.remove('active');
     if (link.getAttribute('href') === '#' + current) {
-      link.style.color = 'var(--primary)';
+      link.classList.add('active');
     }
   });
 }
-
-window.addEventListener('scroll', highlightNavOnScroll);

@@ -7,29 +7,23 @@
     <title>Arana Developers | Eco Griha</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Playfair+Display:wght@600;700&display=swap"
-      rel="stylesheet"
-    />
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Roboto:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="css/styles.css" />
   </head>
   <body>
+
     <div class="loader" id="loader">
       <div class="loader-ring"></div>
-      <p>Forging exceptional spaces...</p>
+      <p>Forging exceptional spaces…</p>
     </div>
 
     <button class="scroll-top" id="scrollTopBtn" aria-label="Scroll to top">↑</button>
 
     <!-- WhatsApp floating button -->
-    <a
-      class="whatsapp-float"
-      href="https://wa.me/919876543210?text=Hi%20Arana%20Developers%2C%20I%27d%20like%20to%20enquire%20about%20a%20construction%20project."
-      target="_blank"
-      rel="noopener noreferrer"
-      aria-label="Chat on WhatsApp"
-    >
-      <svg viewBox="0 0 24 24" fill="currentColor" width="26" height="26" aria-hidden="true">
+    <a class="whatsapp-float"
+       href="https://wa.me/919876543210?text=Hi%20Arana%20Developers%2C%20I%27d%20like%20to%20enquire%20about%20a%20construction%20project."
+       target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp">
+      <svg viewBox="0 0 24 24" fill="currentColor" width="22" height="22" aria-hidden="true">
         <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
         <path d="M12 0C5.373 0 0 5.373 0 12c0 2.126.555 4.119 1.527 5.845L.057 23.617a.75.75 0 0 0 .925.926l5.87-1.49A11.946 11.946 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.75a9.713 9.713 0 0 1-4.953-1.356l-.355-.212-3.684.935.976-3.568-.232-.368A9.712 9.712 0 0 1 2.25 12C2.25 6.615 6.615 2.25 12 2.25S21.75 6.615 21.75 12 17.385 21.75 12 21.75z"/>
       </svg>
@@ -42,42 +36,34 @@
       <a href="#contact" class="mobile-cta-quote">Get Free Quote</a>
     </div>
 
+    <!-- Lead modal -->
     <div class="modal-backdrop" id="leadModalBackdrop" aria-hidden="true">
       <div class="lead-modal" role="dialog" aria-modal="true" aria-labelledby="leadModalTitle">
         <button class="modal-close" id="modalCloseBtn" aria-label="Close lead form">×</button>
         <div class="lead-modal-copy">
           <p class="eyebrow">Exclusive offer</p>
-          <h2 id="leadModalTitle">Request your personalized project quote</h2>
+          <h2 id="leadModalTitle">Request your personalised project quote</h2>
           <p>Get a tailored consultation and fast-track your sustainable build with Arana Developers.</p>
         </div>
         <form id="leadForm" class="lead-form">
-          <label>
-            Name
-            <input type="text" name="name" placeholder="Enter your full name" required />
-          </label>
-          <label>
-            Phone or Email
-            <input type="text" name="contact" placeholder="e.g. hello@domain.com or +91 98765 43210" required />
-          </label>
-          <label>
-            Project type
+          <label>Name<input type="text" name="name" placeholder="Enter your full name" required /></label>
+          <label>Phone or Email<input type="text" name="contact" placeholder="e.g. hello@domain.com or +91 98765 43210" required /></label>
+          <label>Project type
             <select name="projectType">
               <option value="residential">Residential</option>
               <option value="commercial">Commercial</option>
               <option value="industrial">Industrial</option>
             </select>
           </label>
-          <label>
-            Notes
-            <textarea name="notes" rows="4" placeholder="Describe your project goals or timeline"></textarea>
-          </label>
+          <label>Notes<textarea name="notes" rows="3" placeholder="Describe your project goals or timeline"></textarea></label>
           <button type="submit" class="btn btn-primary">Request Quote</button>
           <p class="form-feedback" id="leadFeedback"></p>
         </form>
       </div>
     </div>
 
-    <header class="site-header">
+    <!-- Header -->
+    <header class="site-header" id="siteHeader">
       <div class="container header-inner">
         <a href="#home" class="brand-logo">
           <span class="brand-mark">A</span>
@@ -86,7 +72,6 @@
             <small>Eco Griha</small>
           </div>
         </a>
-
         <nav class="main-nav" id="mainNav">
           <a href="#home">Home</a>
           <a href="#about">About</a>
@@ -96,53 +81,43 @@
           <a href="#projects">Projects</a>
           <a href="#contact">Contact</a>
         </nav>
-
-        <!-- IMPROVEMENT 1: Header CTA button -->
         <a href="#contact" class="btn btn-primary header-cta">Get a Quote</a>
-
         <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
-          <span></span>
-          <span></span>
-          <span></span>
+          <span></span><span></span><span></span>
         </button>
       </div>
     </header>
 
     <main>
+
+      <!-- Hero -->
       <section class="hero-section" id="home">
         <div class="container hero-grid">
           <div class="hero-visual reveal-up">
-            <img
-              src="/images/arana-banner.png"
-              alt="Modern construction project by Arana Developers"
-              class="hero-img"
-            />
+            <img src="/images/arana-banner.png" alt="Modern construction project by Arana Developers" class="hero-img" />
           </div>
-
           <div class="hero-copy hero-copy-right reveal-up delay">
             <p class="eyebrow">Build with confidence</p>
-            <h1>Build your dream home with Arana Developers</h1>
+            <h1>Build your <em>dream home</em> with Arana Developers</h1>
             <p>Premium residential and commercial construction delivered with sustainable systems, expert oversight, and an uncompromising finish.</p>
             <div class="hero-actions">
               <a href="#contact" class="btn btn-primary">Book a Consultation</a>
               <a href="#packages" class="btn btn-secondary">View Packages</a>
             </div>
-
-            <!-- IMPROVEMENT 2: Enhanced stats with better visuals -->
             <div class="hero-stats-grid">
               <div class="stat-card">
-                <span class="stat-number">120+</span>
+                <span class="stat-number" data-target="120">0</span>
                 <p>Signature builds</p>
                 <small class="stat-since">Since 2012</small>
               </div>
               <div class="stat-card">
-                <span class="stat-number">12</span>
+                <span class="stat-number" data-target="12">0</span>
                 <p>Active cities</p>
-                <small class="stat-since">Across South India</small>
+                <small class="stat-since">South India</small>
               </div>
               <div class="stat-card">
-                <span class="stat-number">98%</span>
-                <p>Client satisfaction</p>
+                <span class="stat-number" data-target="98" data-suffix="%">0</span>
+                <p>Satisfaction</p>
                 <small class="stat-since">Verified reviews</small>
               </div>
             </div>
@@ -150,35 +125,39 @@
         </div>
       </section>
 
+      <!-- Curved divider -->
+      <div class="divider-wave" aria-hidden="true">
+        <svg viewBox="0 0 1440 54" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" style="background:#f8f0ea">
+          <path d="M0 54 C360 0 1080 0 1440 54 L1440 54 L0 54Z" fill="#ffffff"/>
+        </svg>
+      </div>
+
+      <!-- About -->
       <section class="section about-section" id="about">
         <div class="container about-grid">
           <div class="section-copy reveal-left">
             <p class="eyebrow">Who we are</p>
-            <h2>Crafting premium structures with an unwavering focus on detail.</h2>
+            <h2>Crafting premium structures with unwavering focus on detail.</h2>
             <p>Arana Developers is a modern construction partner for clients who value sustainability, transparency and bold design. From concept to completion, our teams deliver premium build solutions powered by smart planning and meticulous execution.</p>
-            <ul class="feature-list">
+            <a href="#contact" class="btn btn-primary" style="margin-top:1.5rem; width:fit-content;">Start Your Project</a>
+            <ul class="feature-list" style="margin-top:1.8rem;">
               <li>Dedicated project oversight</li>
               <li>Quality-driven supply chain</li>
-              <li>Transparent scheduling and budget tracking</li>
-              <li>End-to-end construction management</li>
-              <li>Premium quality material assurance</li>
-              <li>On-time project delivery commitment</li>
-              <li>Transparent pricing and cost estimation</li>
-              <li>Expert architectural planning support</li>
-              <li>Real-time construction progress updates</li>
-              <li>Skilled and verified engineering teams</li>
-              <li>Customer-focused project execution</li>
-              <li>Modern design and smart space planning</li>
+              <li>Transparent scheduling</li>
+              <li>Budget tracking</li>
+              <li>End-to-end management</li>
+              <li>Premium material assurance</li>
+              <li>On-time delivery commitment</li>
+              <li>Expert architectural planning</li>
+              <li>Real-time progress updates</li>
+              <li>Skilled engineering teams</li>
+              <li>Customer-focused execution</li>
+              <li>Smart space planning</li>
             </ul>
           </div>
-
           <div class="about-right reveal-right">
             <div class="about-image-wrap">
-              <img
-                src="images/who_we_are.png"
-                alt="Arana Developers home project"
-                class="about-img"
-              />
+              <img src="images/who_we_are.png" alt="Arana Developers home project" class="about-img" />
             </div>
             <div class="about-cards-row">
               <div class="info-card">
@@ -202,6 +181,14 @@
         </div>
       </section>
 
+      <!-- Diagonal divider -->
+      <div class="divider-wave" aria-hidden="true">
+        <svg viewBox="0 0 1440 48" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" style="background:#fff">
+          <path d="M0 0 L1440 48 L1440 48 L0 48Z" fill="#f7f6f3"/>
+        </svg>
+      </div>
+
+      <!-- Services -->
       <section class="section services-section" id="services">
         <div class="container">
           <div class="services-intro reveal-up">
@@ -210,11 +197,7 @@
               <h2>Services shaped for modern construction demands.</h2>
             </div>
             <div class="services-intro-image">
-              <img
-                src="images/our_solutions.png"
-                alt="Construction services"
-                class="section-img"
-              />
+              <img src="images/our_solutions.png" alt="Construction services" class="section-img" />
             </div>
           </div>
           <div class="services-grid">
@@ -238,6 +221,14 @@
         </div>
       </section>
 
+      <!-- Curved divider -->
+      <div class="divider-wave" aria-hidden="true">
+        <svg viewBox="0 0 1440 54" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" style="background:#f7f6f3">
+          <path d="M0 0 C480 54 960 54 1440 0 L1440 54 L0 54Z" fill="#ffffff"/>
+        </svg>
+      </div>
+
+      <!-- Packages -->
       <section class="section pricing-section" id="packages">
         <div class="container">
           <div class="section-heading reveal-up">
@@ -252,86 +243,70 @@
               <div class="pricing-body">
                 <div class="accordion-item">
                   <button class="accordion-trigger" type="button"><span>Structure</span><span class="acc-icon">+</span></button>
-                  <div class="accordion-content">
-                    <ul>
-                      <li>Steel – Sail or JSW Neo</li>
-                      <li>Cement – Dalmia or Zuari of 43 or 53 grade</li>
-                      <li>Aggregates – 20mm &amp; 40mm</li>
-                      <li>Blocks – Standard Solid Concrete blocks. 6 inch &amp; 4 inch</li>
-                      <li>RCC Design Mix – M20 / M25 or As per structural designer recommendation</li>
-                      <li>Ceiling Height – 10 feet (Finished Floor level to Finished Floor level)</li>
-                    </ul>
-                  </div>
+                  <div class="accordion-content"><ul>
+                    <li>Steel – Sail or JSW Neo</li>
+                    <li>Cement – Dalmia or Zuari 43/53 grade</li>
+                    <li>Aggregates – 20mm &amp; 40mm</li>
+                    <li>Blocks – Standard Solid Concrete 6" &amp; 4"</li>
+                    <li>RCC Design Mix – M20/M25</li>
+                    <li>Ceiling Height – 10 feet FFL to FFL</li>
+                  </ul></div>
                 </div>
                 <div class="accordion-item">
                   <button class="accordion-trigger" type="button"><span>Kitchen</span><span class="acc-icon">+</span></button>
-                  <div class="accordion-content">
-                    <ul>
-                      <li>Ceramic wall tiles up to 2 feet above counter</li>
-                      <li>Main sink with single bowl stainless steel</li>
-                      <li>Granite counter top – basic</li>
-                    </ul>
-                  </div>
+                  <div class="accordion-content"><ul>
+                    <li>Ceramic wall tiles up to 2 feet above counter</li>
+                    <li>Main sink with single bowl stainless steel</li>
+                    <li>Granite counter top – basic</li>
+                  </ul></div>
                 </div>
                 <div class="accordion-item">
                   <button class="accordion-trigger" type="button"><span>Bathroom</span><span class="acc-icon">+</span></button>
-                  <div class="accordion-content">
-                    <ul>
-                      <li>Ceramic wall tiles up to 7 feet height</li>
-                      <li>Basic sanitary ware – Parryware or equivalent</li>
-                      <li>CP fittings – basic range</li>
-                    </ul>
-                  </div>
+                  <div class="accordion-content"><ul>
+                    <li>Ceramic wall tiles up to 7 feet height</li>
+                    <li>Basic sanitary ware – Parryware or equivalent</li>
+                    <li>CP fittings – basic range</li>
+                  </ul></div>
                 </div>
                 <div class="accordion-item">
                   <button class="accordion-trigger" type="button"><span>Doors &amp; Windows</span><span class="acc-icon">+</span></button>
-                  <div class="accordion-content">
-                    <ul>
-                      <li>Main door – Teak wood frame with flush door</li>
-                      <li>Internal doors – Sal wood frame with flush door</li>
-                      <li>Windows – Powder coated aluminium with glass</li>
-                    </ul>
-                  </div>
+                  <div class="accordion-content"><ul>
+                    <li>Main door – Teak wood frame with flush door</li>
+                    <li>Internal doors – Sal wood frame with flush door</li>
+                    <li>Windows – Powder coated aluminium with glass</li>
+                  </ul></div>
                 </div>
                 <div class="accordion-item">
                   <button class="accordion-trigger" type="button"><span>Painting</span><span class="acc-icon">+</span></button>
-                  <div class="accordion-content">
-                    <ul>
-                      <li>Interior – Tractor Emulsion or equivalent</li>
-                      <li>Exterior – Ace Exterior or equivalent</li>
-                      <li>2 coats primer + 2 finish coats</li>
-                    </ul>
-                  </div>
+                  <div class="accordion-content"><ul>
+                    <li>Interior – Tractor Emulsion or equivalent</li>
+                    <li>Exterior – Ace Exterior or equivalent</li>
+                    <li>2 coats primer + 2 finish coats</li>
+                  </ul></div>
                 </div>
                 <div class="accordion-item">
                   <button class="accordion-trigger" type="button"><span>Flooring</span><span class="acc-icon">+</span></button>
-                  <div class="accordion-content">
-                    <ul>
-                      <li>Living &amp; bedrooms – Vitrified tiles 600×600mm</li>
-                      <li>Kitchen &amp; bathrooms – Anti-skid ceramic tiles</li>
-                      <li>Staircase – Granite</li>
-                    </ul>
-                  </div>
+                  <div class="accordion-content"><ul>
+                    <li>Living &amp; bedrooms – Vitrified tiles 600×600mm</li>
+                    <li>Kitchen &amp; bathrooms – Anti-skid ceramic tiles</li>
+                    <li>Staircase – Granite</li>
+                  </ul></div>
                 </div>
                 <div class="accordion-item">
                   <button class="accordion-trigger" type="button"><span>Electrical</span><span class="acc-icon">+</span></button>
-                  <div class="accordion-content">
-                    <ul>
-                      <li>Anchor Roma or equivalent switches</li>
-                      <li>Concealed copper wiring – Finolex or equivalent</li>
-                      <li>Basic light and fan points as per plan</li>
-                    </ul>
-                  </div>
+                  <div class="accordion-content"><ul>
+                    <li>Anchor Roma or equivalent switches</li>
+                    <li>Concealed copper wiring – Finolex or equivalent</li>
+                    <li>Basic light and fan points as per plan</li>
+                  </ul></div>
                 </div>
                 <div class="accordion-item">
                   <button class="accordion-trigger" type="button"><span>Miscellaneous</span><span class="acc-icon">+</span></button>
-                  <div class="accordion-content">
-                    <ul>
-                      <li>Staircase MS railing – basic design</li>
-                      <li>Overhead water tank – 1000 litres</li>
-                      <li>Septic tank as per vastu</li>
-                    </ul>
-                  </div>
+                  <div class="accordion-content"><ul>
+                    <li>Staircase MS railing – basic design</li>
+                    <li>Overhead water tank – 1000 litres</li>
+                    <li>Septic tank as per vastu</li>
+                  </ul></div>
                 </div>
               </div>
               <div class="pricing-footer">
@@ -340,92 +315,77 @@
               </div>
             </div>
 
-            <!-- Classic -->
-            <div class="pricing-card reveal-up">
+            <!-- Classic — RECOMMENDED -->
+            <div class="pricing-card recommended reveal-up">
+              <span class="recommended-badge">Most Popular</span>
               <div class="pricing-header">Classic – ₹ 2520/sqft (Incl. GST)</div>
               <div class="pricing-body">
                 <div class="accordion-item">
                   <button class="accordion-trigger" type="button"><span>Structure</span><span class="acc-icon">+</span></button>
-                  <div class="accordion-content">
-                    <ul>
-                      <li>Steel – Sail or JSW Neo</li>
-                      <li>Cement – Dalmia or Zuari of 43 or 53 grade</li>
-                      <li>Aggregates – 20mm &amp; 40mm</li>
-                      <li>Blocks – Standard Solid Concrete blocks. 6 inch &amp; 4 inch</li>
-                      <li>RCC Design Mix – M20 / M25 or As per structural designer recommendation</li>
-                      <li>Ceiling Height – 10 feet (Finished Floor level to Finished Floor level)</li>
-                    </ul>
-                  </div>
+                  <div class="accordion-content"><ul>
+                    <li>Steel – Sail or JSW Neo</li>
+                    <li>Cement – Dalmia or Zuari 43/53 grade</li>
+                    <li>Aggregates – 20mm &amp; 40mm</li>
+                    <li>Blocks – Standard Solid Concrete 6" &amp; 4"</li>
+                    <li>RCC Design Mix – M20/M25</li>
+                    <li>Ceiling Height – 10 feet FFL to FFL</li>
+                  </ul></div>
                 </div>
                 <div class="accordion-item">
                   <button class="accordion-trigger" type="button"><span>Kitchen</span><span class="acc-icon">+</span></button>
-                  <div class="accordion-content">
-                    <ul>
-                      <li>Designer tiles up to 2 feet above counter</li>
-                      <li>Double bowl SS sink with drain board</li>
-                      <li>Granite counter top – premium finish</li>
-                    </ul>
-                  </div>
+                  <div class="accordion-content"><ul>
+                    <li>Designer tiles up to 2 feet above counter</li>
+                    <li>Double bowl SS sink with drain board</li>
+                    <li>Granite counter top – premium finish</li>
+                  </ul></div>
                 </div>
                 <div class="accordion-item">
                   <button class="accordion-trigger" type="button"><span>Bathroom</span><span class="acc-icon">+</span></button>
-                  <div class="accordion-content">
-                    <ul>
-                      <li>Designer wall tiles up to 7 feet height</li>
-                      <li>Mid-range sanitary ware – Cera or equivalent</li>
-                      <li>CP fittings – Jaquar or equivalent</li>
-                    </ul>
-                  </div>
+                  <div class="accordion-content"><ul>
+                    <li>Designer wall tiles up to 7 feet height</li>
+                    <li>Mid-range sanitary ware – Cera or equivalent</li>
+                    <li>CP fittings – Jaquar or equivalent</li>
+                  </ul></div>
                 </div>
                 <div class="accordion-item">
                   <button class="accordion-trigger" type="button"><span>Doors &amp; Windows</span><span class="acc-icon">+</span></button>
-                  <div class="accordion-content">
-                    <ul>
-                      <li>Main door – Teak wood frame with designer panel</li>
-                      <li>Internal doors – Sal wood frame with laminate finish</li>
-                      <li>Windows – UPVC with glass &amp; mosquito mesh</li>
-                    </ul>
-                  </div>
+                  <div class="accordion-content"><ul>
+                    <li>Main door – Teak wood frame with designer panel</li>
+                    <li>Internal doors – Sal wood frame with laminate finish</li>
+                    <li>Windows – UPVC with glass &amp; mosquito mesh</li>
+                  </ul></div>
                 </div>
                 <div class="accordion-item">
                   <button class="accordion-trigger" type="button"><span>Painting</span><span class="acc-icon">+</span></button>
-                  <div class="accordion-content">
-                    <ul>
-                      <li>Interior – Royale or equivalent</li>
-                      <li>Exterior – Apex or equivalent</li>
-                      <li>2 coats primer + 3 finish coats</li>
-                    </ul>
-                  </div>
+                  <div class="accordion-content"><ul>
+                    <li>Interior – Royale or equivalent</li>
+                    <li>Exterior – Apex or equivalent</li>
+                    <li>2 coats primer + 3 finish coats</li>
+                  </ul></div>
                 </div>
                 <div class="accordion-item">
                   <button class="accordion-trigger" type="button"><span>Flooring</span><span class="acc-icon">+</span></button>
-                  <div class="accordion-content">
-                    <ul>
-                      <li>Living &amp; bedrooms – Double charge vitrified 800×800mm</li>
-                      <li>Kitchen &amp; bathrooms – Designer anti-skid tiles</li>
-                      <li>Staircase – Marble or granite premium</li>
-                    </ul>
-                  </div>
+                  <div class="accordion-content"><ul>
+                    <li>Living &amp; bedrooms – Double charge vitrified 800×800mm</li>
+                    <li>Kitchen &amp; bathrooms – Designer anti-skid tiles</li>
+                    <li>Staircase – Marble or granite premium</li>
+                  </ul></div>
                 </div>
                 <div class="accordion-item">
                   <button class="accordion-trigger" type="button"><span>Electrical</span><span class="acc-icon">+</span></button>
-                  <div class="accordion-content">
-                    <ul>
-                      <li>Legrand or equivalent modular switches</li>
-                      <li>Concealed copper wiring – Finolex or Havells</li>
-                      <li>Additional AC &amp; geyser points included</li>
-                    </ul>
-                  </div>
+                  <div class="accordion-content"><ul>
+                    <li>Legrand or equivalent modular switches</li>
+                    <li>Concealed copper wiring – Finolex or Havells</li>
+                    <li>Additional AC &amp; geyser points included</li>
+                  </ul></div>
                 </div>
                 <div class="accordion-item">
                   <button class="accordion-trigger" type="button"><span>Miscellaneous</span><span class="acc-icon">+</span></button>
-                  <div class="accordion-content">
-                    <ul>
-                      <li>Staircase SS railing – designer style</li>
-                      <li>Overhead water tank – 1500 litres</li>
-                      <li>Compound wall with gate included</li>
-                    </ul>
-                  </div>
+                  <div class="accordion-content"><ul>
+                    <li>Staircase SS railing – designer style</li>
+                    <li>Overhead water tank – 1500 litres</li>
+                    <li>Compound wall with gate included</li>
+                  </ul></div>
                 </div>
               </div>
               <div class="pricing-footer">
@@ -440,86 +400,70 @@
               <div class="pricing-body">
                 <div class="accordion-item">
                   <button class="accordion-trigger" type="button"><span>Structure</span><span class="acc-icon">+</span></button>
-                  <div class="accordion-content">
-                    <ul>
-                      <li>Steel – TATA Tiscon or equivalent premium</li>
-                      <li>Cement – Ultratech or ACC 53 grade</li>
-                      <li>Aggregates – 20mm &amp; 40mm high-grade</li>
-                      <li>Blocks – AAC blocks for thermal insulation</li>
-                      <li>RCC Design Mix – M25 / M30 as per structural requirement</li>
-                      <li>Ceiling Height – 11 feet (Finished Floor level to Finished Floor level)</li>
-                    </ul>
-                  </div>
+                  <div class="accordion-content"><ul>
+                    <li>Steel – TATA Tiscon or equivalent premium</li>
+                    <li>Cement – Ultratech or ACC 53 grade</li>
+                    <li>Aggregates – 20mm &amp; 40mm high-grade</li>
+                    <li>Blocks – AAC blocks for thermal insulation</li>
+                    <li>RCC Design Mix – M25/M30</li>
+                    <li>Ceiling Height – 11 feet FFL to FFL</li>
+                  </ul></div>
                 </div>
                 <div class="accordion-item">
                   <button class="accordion-trigger" type="button"><span>Kitchen</span><span class="acc-icon">+</span></button>
-                  <div class="accordion-content">
-                    <ul>
-                      <li>Premium designer tiles full height</li>
-                      <li>Under-mount SS sink with RO point</li>
-                      <li>Quartz or premium granite countertop</li>
-                    </ul>
-                  </div>
+                  <div class="accordion-content"><ul>
+                    <li>Premium designer tiles full height</li>
+                    <li>Under-mount SS sink with RO point</li>
+                    <li>Quartz or premium granite countertop</li>
+                  </ul></div>
                 </div>
                 <div class="accordion-item">
                   <button class="accordion-trigger" type="button"><span>Bathroom</span><span class="acc-icon">+</span></button>
-                  <div class="accordion-content">
-                    <ul>
-                      <li>Full height premium designer tiles</li>
-                      <li>Premium sanitary ware – Kohler or equivalent</li>
-                      <li>CP fittings – Grohe or Jaquar premium</li>
-                    </ul>
-                  </div>
+                  <div class="accordion-content"><ul>
+                    <li>Full height premium designer tiles</li>
+                    <li>Premium sanitary ware – Kohler or equivalent</li>
+                    <li>CP fittings – Grohe or Jaquar premium</li>
+                  </ul></div>
                 </div>
                 <div class="accordion-item">
                   <button class="accordion-trigger" type="button"><span>Doors &amp; Windows</span><span class="acc-icon">+</span></button>
-                  <div class="accordion-content">
-                    <ul>
-                      <li>Main door – Burma teak with premium hardware</li>
-                      <li>Internal doors – Engineered wood with PU finish</li>
-                      <li>Windows – Sliding UPVC with tinted glass</li>
-                    </ul>
-                  </div>
+                  <div class="accordion-content"><ul>
+                    <li>Main door – Burma teak with premium hardware</li>
+                    <li>Internal doors – Engineered wood with PU finish</li>
+                    <li>Windows – Sliding UPVC with tinted glass</li>
+                  </ul></div>
                 </div>
                 <div class="accordion-item">
                   <button class="accordion-trigger" type="button"><span>Painting</span><span class="acc-icon">+</span></button>
-                  <div class="accordion-content">
-                    <ul>
-                      <li>Interior – Royale Luxury Emulsion</li>
-                      <li>Exterior – Weathercoat or Apex Ultima</li>
-                      <li>Putty finish + 3 premium coats</li>
-                    </ul>
-                  </div>
+                  <div class="accordion-content"><ul>
+                    <li>Interior – Royale Luxury Emulsion</li>
+                    <li>Exterior – Weathercoat or Apex Ultima</li>
+                    <li>Putty finish + 3 premium coats</li>
+                  </ul></div>
                 </div>
                 <div class="accordion-item">
                   <button class="accordion-trigger" type="button"><span>Flooring</span><span class="acc-icon">+</span></button>
-                  <div class="accordion-content">
-                    <ul>
-                      <li>Living &amp; bedrooms – Large format marble or premium vitrified 1200×600mm</li>
-                      <li>Kitchen &amp; bathrooms – Full body tiles with anti-skid</li>
-                      <li>Staircase – Italian marble or premium imported granite</li>
-                    </ul>
-                  </div>
+                  <div class="accordion-content"><ul>
+                    <li>Living &amp; bedrooms – Large format marble or vitrified 1200×600mm</li>
+                    <li>Kitchen &amp; bathrooms – Full body tiles anti-skid</li>
+                    <li>Staircase – Italian marble or premium imported granite</li>
+                  </ul></div>
                 </div>
                 <div class="accordion-item">
                   <button class="accordion-trigger" type="button"><span>Electrical</span><span class="acc-icon">+</span></button>
-                  <div class="accordion-content">
-                    <ul>
-                      <li>Schneider or equivalent premium modular switches</li>
-                      <li>Concealed copper wiring – Havells or Polycab</li>
-                      <li>Home automation ready wiring + extra points</li>
-                    </ul>
-                  </div>
+                  <div class="accordion-content"><ul>
+                    <li>Schneider or equivalent premium modular switches</li>
+                    <li>Concealed copper wiring – Havells or Polycab</li>
+                    <li>Home automation ready wiring + extra points</li>
+                  </ul></div>
                 </div>
                 <div class="accordion-item">
                   <button class="accordion-trigger" type="button"><span>Miscellaneous</span><span class="acc-icon">+</span></button>
-                  <div class="accordion-content">
-                    <ul>
-                      <li>Glass or premium SS railing with designer pattern</li>
-                      <li>Overhead tank – 2000 litres + underground sump</li>
-                      <li>Landscaping &amp; driveway paving included</li>
-                    </ul>
-                  </div>
+                  <div class="accordion-content"><ul>
+                    <li>Glass or premium SS railing with designer pattern</li>
+                    <li>Overhead tank – 2000 litres + underground sump</li>
+                    <li>Landscaping &amp; driveway paving included</li>
+                  </ul></div>
                 </div>
               </div>
               <div class="pricing-footer">
@@ -532,11 +476,19 @@
         </div>
       </section>
 
+      <!-- Divider -->
+      <div class="divider-wave" aria-hidden="true">
+        <svg viewBox="0 0 1440 48" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" style="background:#fff">
+          <path d="M0 48 L720 0 L1440 48 L1440 48 L0 48Z" fill="#f5f0ea"/>
+        </svg>
+      </div>
+
+      <!-- Why Choose Us -->
       <section class="section choose-section">
         <div class="container section-grid">
           <div class="choose-copy reveal-left">
             <p class="eyebrow">Why choose us</p>
-            <h2>Precision, accountability and elevated craftsmanship in every project.</h2>
+            <h2>Precision, accountability and elevated craftsmanship.</h2>
             <p>Arana Developers pairs premium design with efficient construction systems that keep costs in check and quality at the forefront.</p>
             <div class="choose-list">
               <div>
@@ -547,18 +499,26 @@
                 <h4>Trusted teams</h4>
                 <p>Seasoned construction managers and builders ensure every milestone is delivered on time.</p>
               </div>
+              <div>
+                <h4>End-to-end support</h4>
+                <p>From permits to punch-list, we handle every stage so you can focus on what matters.</p>
+              </div>
             </div>
           </div>
           <div class="choose-visual reveal-right">
-            <img
-              src="images/why_choose_us.png"
-              alt="Precision construction by Arana Developers"
-              class="choose-full-img"
-            />
+            <img src="images/why_choose_us.png" alt="Precision construction by Arana Developers" class="choose-full-img" />
           </div>
         </div>
       </section>
 
+      <!-- Divider -->
+      <div class="divider-wave" aria-hidden="true">
+        <svg viewBox="0 0 1440 54" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" style="background:#f5f0ea">
+          <path d="M0 54 C360 0 1080 0 1440 54 L1440 54 L0 54Z" fill="#f7f6f3"/>
+        </svg>
+      </div>
+
+      <!-- Process -->
       <section class="section process-section" id="process">
         <div class="container">
           <div class="section-heading reveal-up">
@@ -574,7 +534,7 @@
             <article class="timeline-card reveal-up delay-2">
               <span>02</span>
               <h3>Planning</h3>
-              <p>Schedules, budgets, approvals and material sourcing are aligned for a smooth start.</p>
+              <p>Schedules, budgets, approvals and material sourcing aligned for a smooth start.</p>
             </article>
             <article class="timeline-card reveal-up delay-3">
               <span>03</span>
@@ -584,7 +544,7 @@
             <article class="timeline-card reveal-up delay-4">
               <span>04</span>
               <h3>Quality Control</h3>
-              <p>Inspection, testing and fine-tuning keep each element on brand and on specification.</p>
+              <p>Inspection, testing and fine-tuning keep each element on brand and on spec.</p>
             </article>
             <article class="timeline-card reveal-up delay-5">
               <span>05</span>
@@ -595,6 +555,14 @@
         </div>
       </section>
 
+      <!-- Divider -->
+      <div class="divider-wave" aria-hidden="true">
+        <svg viewBox="0 0 1440 48" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" style="background:#f7f6f3">
+          <path d="M0 0 L1440 48 L1440 48 L0 48Z" fill="#ffffff"/>
+        </svg>
+      </div>
+
+      <!-- Projects -->
       <section class="section projects-section" id="projects">
         <div class="container">
           <div class="section-heading reveal-up">
@@ -643,7 +611,7 @@
               </div>
             </article>
             <article class="project-card reveal-up delay-2">
-              <div class="project-image project-placeholder-5">
+              <div class="project-image">
                 <img src="images/riverside.png" alt="3BHK Villa Mysore" class="project-img" />
               </div>
               <div class="project-content">
@@ -653,7 +621,7 @@
               </div>
             </article>
             <article class="project-card reveal-up delay-3">
-              <div class="project-image project-placeholder-6">
+              <div class="project-image">
                 <img src="images/commercial.png" alt="Tech Park Fitout Bangalore" class="project-img" />
               </div>
               <div class="project-content">
@@ -666,23 +634,32 @@
         </div>
       </section>
 
-      <!-- IMPROVEMENT 3: Upgraded testimonials with ratings, avatars, local details -->
+      <!-- Divider -->
+      <div class="divider-wave" aria-hidden="true">
+        <svg viewBox="0 0 1440 54" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" style="background:#fff">
+          <path d="M0 0 C480 54 960 54 1440 0 L1440 54 L0 54Z" fill="#f7f6f3"/>
+        </svg>
+      </div>
+
+      <!-- Testimonials -->
       <section class="section testimonial-section">
         <div class="container">
           <div class="section-heading reveal-up">
             <p class="eyebrow">Testimonials</p>
             <h2>Trusted by clients who expect exceptional results.</h2>
+            <!-- Google Reviews badge -->
+            <div class="reviews-badge">
+              <span class="reviews-badge-stars">★★★★★</span>
+              <span class="reviews-badge-text"><strong>4.9 / 5</strong> · 120+ Google Reviews</span>
+            </div>
           </div>
           <div class="testimonial-grid">
             <article class="testimonial-card reveal-up">
               <div class="tcard-stars">★★★★★</div>
-              <p>"Arana Developers delivered our 3BHK villa in Mysore on time and within budget. The Classic package finish quality exceeded our expectations — Jaquar fittings, UPVC windows, everything was top-notch."</p>
+              <p>"Arana Developers delivered our 3BHK villa in Mysore on time and within budget. The Classic package finish quality exceeded expectations — Jaquar fittings, UPVC windows, everything top-notch."</p>
               <div class="tcard-author">
                 <div class="tcard-avatar">RK</div>
-                <div>
-                  <strong>Rajesh Kumar</strong>
-                  <span>3BHK Villa · Mysore</span>
-                </div>
+                <div><strong>Rajesh Kumar</strong><span>3BHK Villa · Mysore</span></div>
               </div>
             </article>
             <article class="testimonial-card reveal-up delay-2">
@@ -690,10 +667,7 @@
               <p>"The Premium package was every rupee worth it. Real-time WhatsApp updates kept us informed at every stage. The Italian marble staircase and Kohler fittings look stunning."</p>
               <div class="tcard-author">
                 <div class="tcard-avatar">PM</div>
-                <div>
-                  <strong>Priya Menon</strong>
-                  <span>Premium Build · Bengaluru</span>
-                </div>
+                <div><strong>Priya Menon</strong><span>Premium Build · Bengaluru</span></div>
               </div>
             </article>
             <article class="testimonial-card reveal-up delay-3">
@@ -701,23 +675,27 @@
               <p>"Our office fit-out was completed in 14 weeks flat. The team's attention to detail on the open-plan layout and daylight planning made a huge difference to our team's productivity."</p>
               <div class="tcard-author">
                 <div class="tcard-avatar">AS</div>
-                <div>
-                  <strong>Arjun Shetty</strong>
-                  <span>Office Fit-Out · Chennai</span>
-                </div>
+                <div><strong>Arjun Shetty</strong><span>Office Fit-Out · Chennai</span></div>
               </div>
             </article>
           </div>
         </div>
       </section>
 
+      <!-- Divider -->
+      <div class="divider-wave" aria-hidden="true">
+        <svg viewBox="0 0 1440 48" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" style="background:#f7f6f3">
+          <path d="M0 48 L1440 0 L1440 48 L0 48Z" fill="#ffffff"/>
+        </svg>
+      </div>
+
+      <!-- FAQ -->
       <section class="section faq-section">
         <div class="container">
           <div class="section-heading reveal-up">
             <p class="eyebrow">FAQ</p>
-            <h2>Common questions about our process and offerings.</h2>
+            <h2>Common questions about our process.</h2>
           </div>
-          <!-- IMPROVEMENT: Expanded from 3 to 6 FAQs -->
           <div class="faq-grid">
             <div class="faq-item reveal-up">
               <button class="faq-question" type="button">How long does a typical project take?</button>
@@ -728,7 +706,7 @@
               <div class="faq-answer"><p>Yes, we coordinate planning, permits, and third-party approvals as part of our full-service process.</p></div>
             </div>
             <div class="faq-item reveal-up delay-3">
-              <button class="faq-question" type="button">Can I customize my package?</button>
+              <button class="faq-question" type="button">Can I customise my package?</button>
               <div class="faq-answer"><p>Absolutely. Our packages are starting points that can be tailored to match your priorities and budget.</p></div>
             </div>
             <div class="faq-item reveal-up delay-2">
@@ -736,17 +714,25 @@
               <div class="faq-answer"><p>Yes, we offer flexible milestone-based payment schedules. We also work with leading banks for construction finance and home loan tie-ups. Contact us to discuss options.</p></div>
             </div>
             <div class="faq-item reveal-up delay-3">
-              <button class="faq-question" type="button">Is there a warranty after project completion?</button>
-              <div class="faq-answer"><p>We provide a 1-year structural warranty and a 6-month warranty on finishing works. Any defect arising within this period is rectified at no additional cost.</p></div>
+              <button class="faq-question" type="button">Is there a warranty after completion?</button>
+              <div class="faq-answer"><p>We provide a 1-year structural warranty and a 6-month warranty on finishing works. Any defect within this period is rectified at no additional cost.</p></div>
             </div>
             <div class="faq-item reveal-up delay-4">
-              <button class="faq-question" type="button">Which cities do you currently operate in?</button>
-              <div class="faq-answer"><p>We are currently active in Bengaluru, Mysore, Chennai, Coimbatore, Hyderabad, Mangalore, and 6 more cities across South India. Call us to confirm availability in your area.</p></div>
+              <button class="faq-question" type="button">Which cities do you operate in?</button>
+              <div class="faq-answer"><p>We are active in Bengaluru, Mysore, Chennai, Coimbatore, Hyderabad, Mangalore, and 6 more cities across South India. Call us to confirm availability in your area.</p></div>
             </div>
           </div>
         </div>
       </section>
 
+      <!-- Divider -->
+      <div class="divider-wave" aria-hidden="true">
+        <svg viewBox="0 0 1440 54" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" style="background:#fff">
+          <path d="M0 54 C360 0 1080 0 1440 54 L1440 54 L0 54Z" fill="#f7f6f3"/>
+        </svg>
+      </div>
+
+      <!-- Contact -->
       <section class="section contact-section" id="contact">
         <div class="container contact-grid">
           <div class="contact-copy reveal-left">
@@ -757,26 +743,13 @@
               <img src="images/arana-banner.png" alt="Talk to our construction advisor" class="contact-side-img" />
             </div>
             <div class="contact-details">
-              <div>
-                <strong>Email</strong>
-                <p>hello@aranadevelopers.in</p>
-              </div>
-              <div>
-                <strong>Phone</strong>
-                <p>+91 98765 43210</p>
-              </div>
-              <div>
-                <strong>WhatsApp</strong>
-                <a
-                  href="https://wa.me/919876543210"
-                  class="whatsapp-link"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >Chat with us on WhatsApp →</a>
+              <div><strong>Email</strong><p>hello@aranadevelopers.in</p></div>
+              <div><strong>Phone</strong><p>+91 98765 43210</p></div>
+              <div><strong>WhatsApp</strong>
+                <a href="https://wa.me/919876543210" class="whatsapp-link" target="_blank" rel="noopener noreferrer">Chat with us on WhatsApp →</a>
               </div>
             </div>
           </div>
-
           <div class="contact-form-panel reveal-right">
             <form id="contactForm" class="contact-form">
               <label>Full Name<input type="text" name="name" placeholder="Your name" required /></label>
@@ -789,7 +762,14 @@
         </div>
       </section>
 
-      <!-- Where we build — comes before calculator -->
+      <!-- Divider -->
+      <div class="divider-wave" aria-hidden="true">
+        <svg viewBox="0 0 1440 48" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" style="background:#f7f6f3">
+          <path d="M0 0 L1440 48 L1440 48 L0 48Z" fill="#ffffff"/>
+        </svg>
+      </div>
+
+      <!-- Cities -->
       <section class="section cities-section">
         <div class="container reveal-up">
           <div class="section-heading">
@@ -814,7 +794,7 @@
         </div>
       </section>
 
-      <!-- Cost calculator — last section before footer -->
+      <!-- Calculator -->
       <section class="section calculator-section">
         <div class="container reveal-up">
           <div class="section-heading">
@@ -824,12 +804,8 @@
           </div>
           <div class="calculator-panel">
             <form id="estimateForm" class="calculator-form">
-              <label>
-                Project Area (sq ft)
-                <input type="number" id="projectArea" placeholder="e.g. 1200" min="200" required />
-              </label>
-              <label>
-                Package Type
+              <label>Project Area (sq ft)<input type="number" id="projectArea" placeholder="e.g. 1200" min="200" required /></label>
+              <label>Package Type
                 <select id="packageType">
                   <option value="2290">Basic – ₹2290/sqft</option>
                   <option value="2520">Classic – ₹2520/sqft</option>
@@ -845,12 +821,46 @@
           </div>
         </div>
       </section>
+
     </main>
 
+    <!-- Footer -->
     <footer class="site-footer">
-      <div class="container footer-inner-simple">
-        <p class="footer-brand">Arana Developers</p>
-        <p class="footer-copy">© 2026 Arana Developers. All rights reserved.</p>
+      <div class="container">
+        <div class="footer-inner">
+          <div>
+            <div class="footer-brand-row">
+              <div class="footer-brand-mark">A</div>
+              <div>
+                <div class="footer-brand-name">Arana Developers</div>
+                <div class="footer-brand-sub">Eco Griha</div>
+              </div>
+            </div>
+            <p class="footer-tagline">Building premium, sustainable spaces across South India since 2012.</p>
+          </div>
+          <div class="footer-links">
+            <nav class="footer-nav">
+              <a href="#home">Home</a>
+              <a href="#about">About</a>
+              <a href="#services">Services</a>
+              <a href="#packages">Packages</a>
+              <a href="#contact">Contact</a>
+            </nav>
+            <div class="footer-socials">
+              <a href="#" class="footer-social-btn" aria-label="Instagram">In</a>
+              <a href="#" class="footer-social-btn" aria-label="Facebook">Fb</a>
+              <a href="#" class="footer-social-btn" aria-label="LinkedIn">Li</a>
+              <a href="https://wa.me/919876543210" class="footer-social-btn" aria-label="WhatsApp" target="_blank" rel="noopener noreferrer">Wa</a>
+            </div>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p class="footer-copy">© 2026 Arana Developers. All rights reserved.</p>
+          <div class="footer-newsletter">
+            <input type="email" placeholder="Subscribe to our newsletter" aria-label="Email for newsletter" />
+            <button type="button" id="newsletterBtn">Subscribe</button>
+          </div>
+        </div>
       </div>
     </footer>
 
