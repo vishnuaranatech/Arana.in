@@ -125,8 +125,8 @@ window.addEventListener('load', () => {
     loader.style.pointerEvents = 'none';
   }, 700);
 
-  // Open lead modal after 28 seconds (less intrusive)
-  setTimeout(openLeadModal, 28000);
+  // Change #1: Open lead modal after 60 seconds (1 minute)
+  setTimeout(openLeadModal, 60000);
 });
 
 window.addEventListener('scroll', animateCounters, { passive: true });

@@ -319,7 +319,7 @@ h4, h5, h6 {
   display: grid;
   place-items: center;
   background: linear-gradient(160deg, #fff 0%, #f8f0ea 60%, #f2ebe3 100%);
-  padding: 5rem 0 4rem;
+  padding: 3rem 0 4rem;
   overflow: hidden;
 }
 
@@ -501,6 +501,7 @@ h4, h5, h6 {
 
 .section-copy p { color: var(--muted); }
 
+/* ── Feature list with icons (Change #9) ─────── */
 .feature-list {
   list-style: none;
   padding: 0;
@@ -528,6 +529,51 @@ h4, h5, h6 {
   border-radius: 50%;
 }
 
+/* Icon variant of feature list */
+.feature-list-icons {
+  grid-template-columns: 1fr 1fr;
+  gap: 0.55rem 0.8rem;
+}
+
+.feature-list-icons li {
+  padding-left: 0;
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  background: var(--bg);
+  border: 1px solid rgba(241,90,41,0.1);
+  border-radius: 12px;
+  padding: 0.6rem 0.85rem;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--text);
+  transition: border-color 0.25s, background 0.25s, transform 0.25s;
+}
+
+.feature-list-icons li::before { display: none; }
+
+.feature-list-icons li:hover {
+  border-color: rgba(241,90,41,0.35);
+  background: #fff;
+  transform: translateY(-2px);
+}
+
+.feature-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  flex-shrink: 0;
+  color: var(--primary);
+}
+
+.feature-icon svg {
+  width: 18px;
+  height: 18px;
+}
+
+/* ── About right column ──────────────────────── */
 .about-right {
   display: flex;
   flex-direction: column;
@@ -553,6 +599,7 @@ h4, h5, h6 {
   gap: 1rem;
 }
 
+/* ── Standard info-card (original hover kept for non-premium) ── */
 .info-card {
   background: var(--bg);
   border-radius: 20px;
@@ -576,46 +623,89 @@ h4, h5, h6 {
   line-height: 1.65;
 }
 
-.info-card:hover {
-  background: var(--primary);
-  transform: translateY(-4px);
-  box-shadow: 0 24px 52px rgba(241,90,41,0.28);
-  border-color: transparent;
+/* ── Premium benefit cards (Change #10) — subtle hover, NO full orange fill ── */
+.info-card.info-card-premium {
+  background: #fff;
+  border: 1.5px solid rgba(241,90,41,0.12);
+  border-radius: 20px;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+  transition:
+    border-color 0.3s ease,
+    box-shadow 0.35s ease,
+    transform 0.3s ease;
+  cursor: default;
+  position: relative;
+  overflow: hidden;
 }
 
-.info-card:hover h3, .info-card:hover p { color: #fff; }
+/* Subtle animated corner accent on hover */
+.info-card.info-card-premium::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 20px;
+  border: 2px solid var(--primary);
+  opacity: 0;
+  transition: opacity 0.35s ease;
+  pointer-events: none;
+}
+
+.info-card.info-card-premium:hover {
+  border-color: transparent;
+  box-shadow: 0 12px 40px rgba(241,90,41,0.16), 0 0 0 1px rgba(241,90,41,0.2);
+  transform: translateY(-4px);
+}
+
+.info-card.info-card-premium:hover::before {
+  opacity: 1;
+}
+
+.info-card.info-card-premium h3 {
+  font-family: var(--font-heading);
+  font-size: 1.15rem;
+  font-weight: 600;
+  margin: 0;
+  color: var(--text);
+  transition: color 0.25s;
+}
+
+.info-card.info-card-premium p {
+  color: var(--muted);
+  font-size: 0.85rem;
+  margin: 0;
+  line-height: 1.65;
+  transition: color 0.25s;
+}
+
+.info-card.info-card-premium:hover h3 { color: var(--primary-dark); }
+
+.info-card-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+  background: rgba(241,90,41,0.1);
+  color: var(--primary);
+  flex-shrink: 0;
+  transition: background 0.3s;
+}
+
+.info-card-icon svg {
+  width: 20px;
+  height: 20px;
+}
+
+.info-card.info-card-premium:hover .info-card-icon {
+  background: rgba(241,90,41,0.18);
+}
 
 /* ── Services ────────────────────────────────── */
 .services-section { background: var(--bg); }
-
-.services-intro {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 3rem;
-  align-items: center;
-  margin-bottom: 3.5rem;
-}
-
-.services-intro-copy h2 {
-  font-family: var(--font-heading);
-  font-size: clamp(2rem, 1.2rem + 2vw, 3.2rem);
-  font-weight: 600;
-  margin: 0;
-  line-height: 1.1;
-}
-
-.services-intro-image {
-  border-radius: 24px;
-  overflow: hidden;
-  box-shadow: var(--shadow);
-}
-
-.section-img {
-  width: 100%;
-  height: 300px;
-  object-fit: cover;
-  display: block;
-}
 
 .services-grid {
   display: grid;
@@ -879,19 +969,66 @@ h4, h5, h6 {
   display: block;
 }
 
-/* ── Process ─────────────────────────────────── */
+/* ── Process — 10 steps, 2 rows with arrows (Change #16) ── */
 .process-section { background: var(--bg); }
 
+/* Each row: 5 cards + 4 arrows = 9 columns */
 .timeline-grid {
   display: grid;
-  gap: 1.4rem;
-  grid-template-columns: repeat(5, 1fr);
+  gap: 0;
+  grid-template-columns: 1fr 32px 1fr 32px 1fr 32px 1fr 32px 1fr;
+  align-items: center;
+  margin-bottom: 0;
+}
+
+.timeline-row {
+  margin-bottom: 0;
+}
+
+/* Connector between row 1 and row 2 — full-width arc from Step 5 (right) down to Step 6 (right) */
+.timeline-row-connector {
+  display: block;
+  width: 100%;
+  color: var(--primary);
+  opacity: 0.65;
+  margin: 0.1rem 0;
+  height: 56px;
+  position: relative;
+}
+
+.timeline-row-connector svg {
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 80px;
+  height: 56px;
+  overflow: visible;
+}
+
+/* Row 2 visually reads right-to-left via flex reverse on mobile;
+   on desktop we just label steps 06–10 left to right to keep it simple */
+.timeline-row-reverse {
+  margin-top: 0;
+}
+
+.timeline-arrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--primary);
+  opacity: 0.55;
+  width: 32px;
+}
+
+.timeline-arrow svg {
+  width: 32px;
+  height: 20px;
 }
 
 .timeline-card {
   background: #fff;
-  border-radius: 24px;
-  padding: 2rem 1.6rem;
+  border-radius: 20px;
+  padding: 1.6rem 1.3rem;
   border: 1px solid rgba(26,26,24,0.07);
   box-shadow: var(--shadow);
   transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
@@ -904,32 +1041,41 @@ h4, h5, h6 {
   box-shadow: 0 20px 52px rgba(241,90,41,0.18);
 }
 
-.timeline-card:hover span { background: var(--primary); color: #fff; }
+.timeline-card:hover .timeline-icon { background: var(--primary); color: #fff; }
 
-.timeline-card span {
+.timeline-icon {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   width: 44px;
   height: 44px;
-  border-radius: 14px;
+  border-radius: 12px;
   background: rgba(241,90,41,0.12);
   color: var(--primary);
-  font-weight: 700;
-  font-family: var(--font-heading);
-  font-size: 1.1rem;
-  margin-bottom: 1.2rem;
+  margin-bottom: 1rem;
   transition: background 0.3s, color 0.3s;
+  flex-shrink: 0;
+}
+
+.timeline-icon svg {
+  width: 22px;
+  height: 22px;
 }
 
 .timeline-card h3 {
   font-family: var(--font-heading);
-  font-size: 1.3rem;
+  font-size: 1.1rem;
   font-weight: 600;
-  margin: 0 0 0.5rem;
+  margin: 0 0 0.4rem;
 }
 
-.timeline-card p { color: var(--muted); margin: 0; font-size: 0.9rem; }
+.timeline-card p { color: var(--muted); margin: 0; font-size: 0.85rem; line-height: 1.55; }
+
+/* Spacing between the two rows */
+.timeline-row + .timeline-row-connector + .timeline-row,
+.timeline-row-connector {
+  margin-top: 0.75rem;
+}
 
 /* ── Projects ────────────────────────────────── */
 .projects-section { background: #fff; }
@@ -1094,17 +1240,24 @@ h4, h5, h6 {
 .faq-section { background: #fff; }
 
 .faq-grid {
-  display: grid;
+  display: flex;
+  flex-wrap: wrap;
   gap: 1.4rem;
-  grid-template-columns: repeat(3, 1fr);
 }
 
 .faq-item {
+  flex: 1 1 calc(33.333% - 1rem);
+  min-width: 260px;
+  align-self: flex-start;
   border-radius: 20px;
   border: 1px solid rgba(26,26,24,0.08);
   overflow: hidden;
   background: var(--bg);
-  transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+  transition:
+    background 0.35s ease,
+    transform 0.3s ease,
+    box-shadow 0.35s ease,
+    border-color 0.3s ease;
   cursor: default;
 }
 
@@ -1130,21 +1283,33 @@ h4, h5, h6 {
   color: var(--secondary);
   border-bottom: 1px solid rgba(17,17,17,0.07);
   font-family: var(--font-body);
+  transition: color 0.3s ease;
+  cursor: pointer;
+  line-height: 1.4;
 }
+
+.faq-question:hover { color: var(--primary); }
+.faq-item.active .faq-question:hover { color: #fff; }
 
 .faq-answer {
   max-height: 0;
   overflow: hidden;
-  transition: max-height 0.35s ease;
+  transition: max-height 0.4s ease, padding 0.3s ease;
   padding: 0 1.6rem;
 }
 
 .faq-item.active .faq-answer {
-  max-height: 180px;
+  max-height: 200px;
   padding-top: 1rem;
+  padding-bottom: 1.2rem;
 }
 
-.faq-answer p { font-size: 0.92rem; line-height: 1.7; }
+.faq-answer p {
+  font-size: 0.92rem;
+  line-height: 1.72;
+  margin: 0;
+  transition: color 0.3s ease;
+}
 
 /* ── Contact ─────────────────────────────────── */
 .contact-section { background: var(--bg); }
@@ -1231,44 +1396,6 @@ h4, h5, h6 {
 }
 
 .form-feedback { color: var(--primary); font-size: 0.92rem; min-height: 1.4rem; }
-
-/* ── Cities ──────────────────────────────────── */
-.cities-section { background: #fff; border-top: 1px solid rgba(17,17,17,0.06); }
-
-.cities-section .section-heading h2 {
-  font-family: var(--font-heading);
-  font-size: clamp(2rem, 1.2rem + 2vw, 3rem);
-  font-weight: 600;
-  margin: 0 0 0.5rem;
-}
-
-.cities-grid {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.75rem;
-  margin-top: 2rem;
-}
-
-.city-pill {
-  background: var(--bg);
-  border: 1px solid rgba(241,90,41,0.2);
-  color: var(--text);
-  padding: 0.6rem 1.2rem;
-  border-radius: 999px;
-  font-size: 0.88rem;
-  font-weight: 500;
-  transition: background 0.2s, border-color 0.2s, color 0.2s, transform 0.2s;
-  cursor: default;
-  box-shadow: 0 2px 10px rgba(17,17,17,0.04);
-  font-family: var(--font-body);
-}
-
-.city-pill:hover {
-  background: var(--primary);
-  border-color: var(--primary);
-  color: #fff;
-  transform: translateY(-2px);
-}
 
 /* ── Calculator ──────────────────────────────── */
 .calculator-section { background: var(--bg); }
@@ -1596,18 +1723,25 @@ h4, h5, h6 {
 /* ── Responsive ──────────────────────────────── */
 @media (max-width: 1024px) {
   .pricing-grid { grid-template-columns: 1fr; max-width: 500px; margin: 0 auto; }
-  .services-intro { grid-template-columns: 1fr; }
   .hero-grid { grid-template-columns: 1fr; }
   .about-grid { grid-template-columns: 1fr; }
   .section-grid { grid-template-columns: 1fr; }
   .choose-full-img { height: 320px; }
-  .services-grid, .timeline-grid { grid-template-columns: repeat(2, 1fr); }
-  .gallery-grid, .testimonial-grid, .faq-grid { grid-template-columns: repeat(2, 1fr); }
+  .services-grid { grid-template-columns: repeat(2, 1fr); }
+  .gallery-grid, .testimonial-grid { grid-template-columns: repeat(2, 1fr); }
+  .faq-grid { gap: 1rem; }
+  .faq-item { flex: 1 1 calc(50% - 0.5rem); }
   .contact-grid { grid-template-columns: 1fr; }
   .header-cta { display: none; }
   .footer-inner { grid-template-columns: 1fr; }
   .footer-links { align-items: flex-start; }
   .footer-nav { justify-content: flex-start; }
+
+  /* Timeline: 2 rows of 5 collapse to 2 rows of 2 */
+  .timeline-grid {
+    grid-template-columns: 1fr 28px 1fr 28px 1fr;
+  }
+  .timeline-row-connector { display: none; }
 }
 
 @media (max-width: 768px) {
@@ -1637,7 +1771,18 @@ h4, h5, h6 {
 
   .hero-section { padding: 5rem 0; }
 
-  .timeline-grid, .gallery-grid, .testimonial-grid, .faq-grid, .services-grid { grid-template-columns: 1fr; }
+  .gallery-grid, .testimonial-grid, .services-grid { grid-template-columns: 1fr; }
+  .faq-grid { gap: 0.85rem; }
+  .faq-item { flex: 1 1 100%; }
+
+  /* Timeline on mobile: single column, no arrows */
+  .timeline-grid {
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+  }
+  .timeline-arrow { display: none; }
+  .timeline-row-connector { display: none; }
+  .feature-list-icons { grid-template-columns: 1fr; }
 
   .section { padding: 3.5rem 0; }
 
