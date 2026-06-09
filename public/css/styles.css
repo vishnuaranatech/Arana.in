@@ -1009,24 +1009,24 @@ h4, h5, h6 {
   margin-bottom: 0;
 }
 
-/* Connector between row 1 and row 2 — vertical drop on right side from Foundation to Structure */
+/* Connector between row 1 and row 2 — bracket hugs right edge of last card */
 .timeline-row-connector {
   display: block;
   width: 100%;
-  color: var(--primary);
-  opacity: 0.7;
-  margin: 0;
-  height: 60px;
   position: relative;
-  overflow: visible;
+  height: 76px;
+  margin-top: 0;
+  margin-bottom: 0;
+  color: var(--primary);
+  opacity: 0.8;
 }
 
-.timeline-row-connector svg {
+.connector-svg {
   position: absolute;
-  right: 0;
-  top: 0;
-  width: 60px;
-  height: 100%;
+  right: -45px;                   /* flush with container right = right edge of Foundation card */
+  top: -24px;
+  width: 44px;                /* small — just enough for the bracket stub + vertical */
+  height: calc(100% + 48px);
   overflow: visible;
 }
 
@@ -1097,9 +1097,11 @@ h4, h5, h6 {
 .timeline-card p { color: var(--muted); margin: 0; font-size: 0.85rem; line-height: 1.55; }
 
 /* Spacing between the two rows */
-.timeline-row + .timeline-row-connector + .timeline-row,
 .timeline-row-connector {
-  margin-top: 0.75rem;
+  margin-top: 0.4rem;
+}
+.timeline-row-connector + .timeline-row {
+  margin-top: 0.4rem;
 }
 
 /* ── Projects ────────────────────────────────── */
