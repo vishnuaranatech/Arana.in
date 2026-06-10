@@ -46,16 +46,12 @@
           <p>Get a tailored consultation and fast-track your sustainable build with Arana Developers.</p>
         </div>
         <form id="leadForm" class="lead-form">
-          <label>Name<input type="text" name="name" placeholder="Enter your full name" required /></label>
-          <label>Phone or Email<input type="text" name="contact" placeholder="e.g. hello@domain.com or +91 89394 25000" required /></label>
-          <label>Project type
-            <select name="projectType">
-              <option value="residential">Residential</option>
-              <option value="commercial">Commercial</option>
-              <option value="industrial">Industrial</option>
-            </select>
-          </label>
-          <label>Notes<textarea name="notes" rows="3" placeholder="Describe your project goals or timeline"></textarea></label>
+          <label>Name *<input type="text" name="entry.1753477689" placeholder="Enter your full name" required /></label>
+          <label>Mobile Number *<input type="tel" name="entry.327861177" placeholder="+91 89394 25000" required /></label>
+          <label>E-mail *<input type="email" name="entry.1239744766" placeholder="you@example.com" required /></label>
+          <label>Plot Location *<input type="text" name="entry.456832565" placeholder="e.g. Anna Nagar, Chennai" required /></label>
+          <label>Plot Size (Sq.ft) *<input type="number" name="entry.446645636" placeholder="e.g. 1200" min="1" required /></label>
+          <label>Notes<textarea name="entry.614174494" rows="3" placeholder="Any additional details or requirements"></textarea></label>
           <button type="submit" class="btn btn-primary">Request Quote</button>
           <p class="form-feedback" id="leadFeedback"></p>
         </form>
@@ -66,7 +62,7 @@
     <header class="site-header" id="siteHeader">
       <div class="container header-inner">
         <a href="#home" class="brand-logo">
-          <span class="brand-mark">A</span>
+          <img src="images/logo.png" alt="AD" class="brand-logo-img" />
           <div>
             <strong>Arana Developers</strong>
             <small>Eco Griha</small>
@@ -933,13 +929,35 @@
               <div><strong>WhatsApp</strong>
                 <a href="https://wa.me/8939425000" class="whatsapp-link" target="_blank" rel="noopener noreferrer">Chat with us on WhatsApp →</a>
               </div>
+              <div class="contact-social-row">
+                <strong>Follow Us</strong>
+                <div class="contact-social-icons">
+                  <a href="#" class="contact-social-btn contact-social-insta" aria-label="Instagram" target="_blank" rel="noopener noreferrer">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" width="18" height="18">
+                      <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+                      <circle cx="12" cy="12" r="4"/>
+                      <circle cx="17.5" cy="6.5" r="0.5" fill="currentColor" stroke="none"/>
+                    </svg>
+                    <span>Instagram</span>
+                  </a>
+                  <a href="#" class="contact-social-btn contact-social-fb" aria-label="Facebook" target="_blank" rel="noopener noreferrer">
+                    <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18">
+                      <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
+                    </svg>
+                    <span>Facebook</span>
+                  </a>
+                </div>
+              </div>
             </div>
           </div>
           <div class="contact-form-panel reveal-right">
             <form id="contactForm" class="contact-form">
-              <label>Full Name<input type="text" name="name" placeholder="Your name" required /></label>
-              <label>Email Address<input type="email" name="email" placeholder="you@example.com" required /></label>
-              <label>Project Details<textarea name="message" rows="5" placeholder="Share a few details about your project" required></textarea></label>
+              <label>Full Name *<input type="text" name="entry.1753477689" placeholder="Your name" required /></label>
+              <label>Mobile Number *<input type="tel" name="entry.327861177" placeholder="+91 89394 25000" required /></label>
+              <label>E-mail *<input type="email" name="entry.1239744766" placeholder="you@example.com" required /></label>
+              <label>Plot Location *<input type="text" name="entry.456832565" placeholder="e.g. Anna Nagar, Chennai" required /></label>
+              <label>Plot Size (Sq.ft) *<input type="number" name="entry.446645636" placeholder="e.g. 1200" min="1" required /></label>
+              <label>Notes<textarea name="entry.614174494" rows="4" placeholder="Share a few details about your project"></textarea></label>
               <button type="submit" class="btn btn-primary">Send Message</button>
               <p class="form-feedback" id="formFeedback"></p>
             </form>

@@ -139,15 +139,27 @@ leadModalBackdrop.addEventListener('click', (event) => {
 leadForm.addEventListener('submit', (event) => {
   event.preventDefault();
   const formData = new FormData(leadForm);
-  const name = formData.get('name').trim();
-  const contact = formData.get('contact').trim();
 
-  if (!name || !contact) {
-    leadFeedback.textContent = 'Please provide your name and preferred contact method.';
+  const name = formData.get('entry.1753477689').trim();
+  const mobile = formData.get('entry.327861177').trim();
+  const email = formData.get('entry.1239744766').trim();
+  const location = formData.get('entry.456832565').trim();
+  const plotSize = formData.get('entry.446645636').trim();
+
+  if (!name || !mobile || !email || !location || !plotSize) {
+    leadFeedback.textContent = 'Please fill in all required fields.';
     return;
   }
 
-  leadFeedback.textContent = 'Thank you! Someone from Arana Developers will follow up shortly.';
+  const googleFormURL = 'https://docs.google.com/forms/d/e/1FAIpQLScSspaKZgLFzDcmJR0707y3I_NXyXzO--W9xwSE_3y-aX5kZw/formResponse';
+  const params = new URLSearchParams(formData);
+
+  fetch(`${googleFormURL}?${params.toString()}`, {
+    method: 'GET',
+    mode: 'no-cors',
+  }).catch(() => {});
+
+  leadFeedback.textContent = '✓ Thank you! Someone from Arana Developers will follow up shortly.';
   leadForm.reset();
   setTimeout(closeLeadModal, 1800);
 });
@@ -166,14 +178,25 @@ faqItems.forEach((item) => {
 contactForm.addEventListener('submit', (event) => {
   event.preventDefault();
   const formData = new FormData(contactForm);
-  const name = formData.get('name').trim();
-  const email = formData.get('email').trim();
-  const message = formData.get('message').trim();
 
-  if (!name || !email || !message) {
-    formFeedback.textContent = 'Please complete all fields before submitting.';
+  const name = formData.get('entry.1753477689').trim();
+  const mobile = formData.get('entry.327861177').trim();
+  const email = formData.get('entry.1239744766').trim();
+  const location = formData.get('entry.456832565').trim();
+  const plotSize = formData.get('entry.446645636').trim();
+
+  if (!name || !mobile || !email || !location || !plotSize) {
+    formFeedback.textContent = 'Please complete all required fields before submitting.';
     return;
   }
+
+  const googleFormURL = 'https://docs.google.com/forms/d/e/1FAIpQLScSspaKZgLFzDcmJR0707y3I_NXyXzO--W9xwSE_3y-aX5kZw/formResponse';
+  const params = new URLSearchParams(formData);
+
+  fetch(`${googleFormURL}?${params.toString()}`, {
+    method: 'GET',
+    mode: 'no-cors',
+  }).catch(() => {});
 
   formFeedback.textContent = '✓ Thanks! Your request has been sent. We will reach out soon.';
   contactForm.reset();
